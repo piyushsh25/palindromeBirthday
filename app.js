@@ -66,21 +66,94 @@ function isLeapYear(year){
 }
 
 function getNextDate(date){
-    var day=date.date+1;
+    var day=date.day+1;
     var month=date.month;
     var year =date.year;
 
-    var daysInMonth=[31,28,31,30,31,30,31,31,30,31,30,31]
+    var daysInMonth=[31,28,31,30,31,30,31,31,30,31,30,31];
+    if(month ===2){
+if(isLeapYear(year)){
+    if(day>29){
+        day=1;
+        month++;
+    }
 }
+else{
+    if(day>28){
+        day=1;
+        month++;
+    }
+}
+    }else{
+        if(day>daysInMonth[month-1]){
+            day=1;
+            month++;
+        }
+    }
+    if(month>12){
+        month=1;
+        year++;
+    } 
+
+    return{
+        day:day,
+        month:month,
+        year:year
+    }
+}
+
+
 
 function getNextPalindromeDate(date){
+var ctr=0;
+var nextDate=getNextDate(date);
 
+while(1){
+    ctr++;
+var isPalindrome=checkPalindromeForAllDateFormats(nextDate);
+if(isPalindrome){
+    break;
+}
+nextDate=getNextDate(nextDate);
+}
+return [ctr, nextDate]
 }
 
-var date={
-    day:13,
-    month:9,
-    year:2011
+
+
+// var date={
+//     day:25,
+//     month:4,
+//     year:2002
+// }
+
+
+var dateInput=document.querySelector("#bday-input")
+var palindromeButton=document.querySelector("#show-btn")
+var output=document.querySelector("#output1")
+
+
+function clickHandler(){
+   var input= dateInput.value;
+   if(input !==''){
+       var listOfDate=input.split('-');
+       var date={
+        day:  Number(listOfDate[2]),
+        month:Number(listOfDate[1]),
+        year: Number(listOfDate[0])
+    }
+var isPalindrome=checkPalindromeForAllDateFormats(date);
+console.log(isPalindrome);
+
+if(isPalindrome){
+output.innerHTML="Yyaay ! Your birthday is a palindrome"
+}else{
+    var [ctr,nextDate]=getNextPalindromeDate(date);
+    output.innerText = `The nearest palindrome date is`+ctr+" i.e on "+nextDate;
+    console.log(nextDate);
+}
+   }
 }
 
-console.log(isLeapYear(2020));
+
+palindromeButton.addEventListener("click",clickHandler)
