@@ -54,10 +54,33 @@ for(var i=0;i<listOfPalindromes.length;i++){
 return flag;
 }
 
+function isLeapYear(year){
+    if(year%400 ===0){
+        return true;
+    }if(year%100 ===0){
+        return false;
+    }if(year%4 ===0){
+        return true;
+    }
+    return false;
+}
+
+function getNextDate(date){
+    var day=date.date+1;
+    var month=date.month;
+    var year =date.year;
+
+    var daysInMonth=[31,28,31,30,31,30,31,31,30,31,30,31]
+}
+
+function getNextPalindromeDate(date){
+
+}
+
 var date={
     day:13,
     month:9,
     year:2011
 }
 
-console.log(checkPalindromeForAllDateFormats(date));
+console.log(isLeapYear(2020));
