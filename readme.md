@@ -1,0 +1,1 @@
+this app checks if you Birthday is a palindrome. e made this using vanillaJS,html,css
