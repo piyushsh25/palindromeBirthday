@@ -143,14 +143,14 @@ function clickHandler(){
         year: Number(listOfDate[0])
     }
 var isPalindrome=checkPalindromeForAllDateFormats(date);
-console.log(isPalindrome);
+
 
 if(isPalindrome){
-output.innerHTML="Yyaay ! Your birthday is a palindrome"
+output.innerHTML="Yyaay ! Your birthday is a palindrome 🙌🙌🙌"
 }else{
     var [ctr,nextDate]=getNextPalindromeDate(date);
-    output.innerText = `The nearest palindrome date is`+ctr+" i.e on "+nextDate;
-    console.log(nextDate);
+    output.innerText = `The nearest palindrome date is ${ctr}- days away i.e on month: ${nextDate.month} , date: ${nextDate.day} , year: ${nextDate.year} 😁😁😁`;
+ 
 }
    }
 }

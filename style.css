@@ -7,9 +7,20 @@
 body{
     text-align: center;
     background-color: var(--primary-color);
+ 
 }
 
-/* styles from css component */
+#bday-input{
+    border-radius: 10px;
+    height: 50px;
+    width: 200px
+      
+}
+#output1{
+    text-align: center;
+    margin: 2rem;
+}
+/* styles from css component library with minor changes*/
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
@@ -30,9 +41,12 @@ body{
 /* links */
 
 .primary{
-    background-color: var(--primary-color);
+    margin-top: 20px;
+    height: 45px;
+    width: 100px;
+    background-color: var(--dark-gray);
     border-radius: 0.5rem;
-    color: white;
+    color: var(--primary-color);
 }
 .link{
     text-decoration: none;
