@@ -1,17 +1,17 @@
-function reversedStr(str){
+let reversedStr=(str)=>{
     var listOfChar=str.split('');
     var reverseListOfChars = listOfChar.reverse();
     var reversedStr=reverseListOfChars.join('');
     return reversedStr;
 }
 
-function isPalindrome(str){
+let isPalindrome=(str)=>{
 var reverse=reversedStr(str);
 return str===reverse
 
 }
 
-function convertDateToStr(date){
+let convertDateToStr=(date)=>{
 
 var dateStr={day:'',month:'',year:''};
 if(date.day<10){
@@ -30,7 +30,7 @@ return dateStr;
 }
 
 
-function getAllDateFormats(date){
+let getAllDateFormats=(date)=>{
     var dateStr = convertDateToStr(date);
     var ddmmyyyy=dateStr.day+dateStr.month+dateStr.year; 
     var mmddyyyy=dateStr.month+dateStr.day+dateStr.year;
@@ -40,7 +40,7 @@ function getAllDateFormats(date){
     var yymmdd=dateStr.year.slice(-2)+dateStr.month+dateStr.day;
     return [ddmmyyyy,mmddyyyy,yyyymmdd,ddmmyy,mmddyy,yymmdd]
 }
-function checkPalindromeForAllDateFormats(date){
+let checkPalindromeForAllDateFormats=(date)=>{
 var listOfPalindromes=getAllDateFormats(date);
 
 var flag =false;
@@ -54,7 +54,7 @@ for(var i=0;i<listOfPalindromes.length;i++){
 return flag;
 }
 
-function isLeapYear(year){
+let isLeapYear=(year)=>{
     if(year%400 ===0){
         return true;
     }if(year%100 ===0){
@@ -65,7 +65,7 @@ function isLeapYear(year){
     return false;
 }
 
-function getNextDate(date){
+let getNextDate=(date)=>{
     var day=date.day+1;
     var month=date.month;
     var year =date.year;
@@ -104,7 +104,7 @@ else{
 
 
 
-function getNextPalindromeDate(date){
+let getNextPalindromeDate=(date)=>{
 var ctr=0;
 var nextDate=getNextDate(date);
 
@@ -133,7 +133,7 @@ var palindromeButton=document.querySelector("#show-btn")
 var output=document.querySelector("#output1")
 
 
-function clickHandler(){
+let clickHandler=()=>{
    var input= dateInput.value;
    if(input !==''){
        var listOfDate=input.split('-');
